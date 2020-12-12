@@ -1,0 +1,117 @@
+- name: lz4
+  type: table
+  desc: Extension description
+  members:
+
+    # Frame
+    - name: compress
+      type: function
+      desc: Compress input and return compressed data.
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be compressed.
+        - name: options
+          type: table
+          optional: true
+          desc: Optional table
+          members:
+            - name: compression_level
+              type: number
+              desc: Integer between 0 and 16.
+            - name: auto_flush
+              type: bool
+              desc: Boolean.
+            - name: block_size
+              type: number
+              desc: Maximum block size can be lz4.block_64KB, lz4.block_256KB, lz4.block_1MB, lz4.block_4MB.
+            - name: block_independent
+              type: bool
+              desc: Boolean.
+            - name: content_checksum
+              type: bool
+              desc: Boolean.
+          returns:
+            - name: compressed_data
+              type: string
+              desc: Compressed data.
+    - name: decompress
+      type: function
+      desc: Decompress input and return decompressed data.
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be decompressed.
+      returns:
+        - name: decompressed_data
+          type: string
+          desc: Decompressed data.
+
+    # Block
+    - name: block_compress
+      type: function
+      desc: Compress input and return compressed data.
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be compressed.
+        - name: accelerate
+          type: number
+          optional: true
+          desc: Optional integer
+      returns:
+        - name: compressed_data
+          type: string
+          desc: Compressed data.
+    - name: block_compress_hc
+      type: function
+      desc: Compress input in high compression mode and return compressed data.
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be compressed.
+        - name: compression_level
+          type: number
+          optional: true
+          desc: Optional integer.
+      returns:
+        - name: compressed_data
+          type: string
+          desc: Compressed data.
+    - name: block_decompress_safe
+      type: function
+      desc: Decompress input and return decompressed data. This function is protected against buffer overflow exploits, including malicious data packets.
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be decompressed.
+        - name: decompress_length
+          type: number
+          desc: Length of decompressed data (integer).
+      returns:
+        - name: decompressed_data
+          type: string
+          desc: Decompressed data.
+    - name: block_decompress_fast
+      type: function
+      desc: Decompress input and return decompressed data. It does not provide any protection against intentionally modified data stream (malicious input). Use this function in trusted environment only (data to decode comes from a trusted source).
+      parameters:
+        - name: input
+          type: string
+          desc: Input string to be decompressed.
+        - name: decompress_length
+          type: number
+          desc: Length of decompressed data (integer).
+
+    # Constants
+    - name: version
+      type: string
+      desc: LZ4 version string.
+    - name: block_64KB
+      type: number
+    - name: block_256KB
+      type: number
+    - name: block_1MB
+      type: number
+    - name: block_4MB
+      type: number

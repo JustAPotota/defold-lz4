@@ -1,0 +1,37 @@
+function init(self)
+	print("LZ4 version: " .. lz4.version)
+	
+	local s = "LZ4 is a very fast compression and decompression algorithm."
+	print("Original: " .. s)
+	
+	local compressed = lz4.block_compress(s)
+	print("Compressed: " .. compressed)
+	
+	local decompressed = lz4.block_decompress_safe(compressed, #s)
+	print("Decompressed: " .. decompressed)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
