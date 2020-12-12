@@ -1,4 +1,2 @@
-# Native extension template
-This template contains the basic setup for creation of a Defold native extension.
-
-You can learn more about native extensions in the [official manual](https://www.defold.com/manuals/extensions/).
+# defold-lz4
+Port of [witchu/lua-lz4](https://github.com/witchu/lua-lz4) to [Defold](https://www.defold.com/)'s native extension format.
