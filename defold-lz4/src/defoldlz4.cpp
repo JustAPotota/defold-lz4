@@ -22,8 +22,9 @@ limitations under the License.
 // include the Defold SDK
 #include <dmsdk/sdk.h>
 
-#include "lz4/lz4frame.h"
+#include <stdlib.h>
 
+#include "lz4/lz4frame.h"
 #include "lz4/lz4.h"
 #include "lz4/lz4hc.h"
 
