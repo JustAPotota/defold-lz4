@@ -869,54 +869,12 @@ static void LuaInit(lua_State* L)
     assert(top == lua_gettop(L));
 }
 
-dmExtension::Result AppInitializeMyExtension(dmExtension::AppParams* params)
-{
-    return dmExtension::RESULT_OK;
-}
-
-dmExtension::Result InitializeMyExtension(dmExtension::Params* params)
+dmExtension::Result InitializeDefoldLZ4(dmExtension::Params* params)
 {
     // Init Lua
     LuaInit(params->m_L);
     dmLogInfo("Registered %s Extension\n", MODULE_NAME);
     return dmExtension::RESULT_OK;
-}
-
-dmExtension::Result AppFinalizeMyExtension(dmExtension::AppParams* params)
-{
-    return dmExtension::RESULT_OK;
-}
-
-dmExtension::Result FinalizeMyExtension(dmExtension::Params* params)
-{
-    return dmExtension::RESULT_OK;
-}
-
-dmExtension::Result OnUpdateMyExtension(dmExtension::Params* params)
-{
-    return dmExtension::RESULT_OK;
-}
-
-void OnEventMyExtension(dmExtension::Params* params, const dmExtension::Event* event)
-{
-    switch(event->m_Event)
-    {
-        case dmExtension::EVENT_ID_ACTIVATEAPP:
-            //dmLogInfo("OnEventMyExtension - EVENT_ID_ACTIVATEAPP\n");
-            break;
-        case dmExtension::EVENT_ID_DEACTIVATEAPP:
-            //dmLogInfo("OnEventMyExtension - EVENT_ID_DEACTIVATEAPP\n");
-            break;
-        case dmExtension::EVENT_ID_ICONIFYAPP:
-            //dmLogInfo("OnEventMyExtension - EVENT_ID_ICONIFYAPP\n");
-            break;
-        case dmExtension::EVENT_ID_DEICONIFYAPP:
-            //dmLogInfo("OnEventMyExtension - EVENT_ID_DEICONIFYAPP\n");
-            break;
-        default:
-            //dmLogWarning("OnEventMyExtension - Unknown event id\n");
-            break;
-    }
 }
 
 // Defold SDK uses a macro for setting up extension entry points:
@@ -925,4 +883,4 @@ void OnEventMyExtension(dmExtension::Params* params, const dmExtension::Event* e
 
 // defoldlz4 is the C++ symbol that holds all relevant extension data.
 // It must match the name field in the `ext.manifest`
-DM_DECLARE_EXTENSION(defoldlz4, LIB_NAME, AppInitializeMyExtension, AppFinalizeMyExtension, InitializeMyExtension, OnUpdateMyExtension, OnEventMyExtension, FinalizeMyExtension)
+DM_DECLARE_EXTENSION(defoldlz4, LIB_NAME, 0, 0, InitializeDefoldLZ4, 0, 0, 0)
