@@ -24,9 +24,9 @@ limitations under the License.
 
 #include <stdlib.h>
 
-#include "lz4/lz4frame.h"
-#include "lz4/lz4.h"
-#include "lz4/lz4hc.h"
+#include "lz4frame.h"
+#include "lz4.h"
+#include "lz4hc.h"
 
 
 #define LZ4_DICTSIZE      65536
