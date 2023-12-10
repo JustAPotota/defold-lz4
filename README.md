@@ -1,4 +1,4 @@
-![Build with bob](https://github.com/JustAPotota/defold-lz4/workflows/Build%20with%20bob/badge.svg)
+[![Build with bob](https://github.com/JustAPotota/defold-lz4/actions/workflows/bob.yml/badge.svg)](https://github.com/JustAPotota/defold-lz4/actions/workflows/bob.yml)
 
 # defold-lz4
 Port of [witchu/lua-lz4](https://github.com/witchu/lua-lz4) to [Defold](https://www.defold.com/)'s native extension format.
