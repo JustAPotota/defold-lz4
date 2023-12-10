@@ -801,31 +801,6 @@ static int lz4_new_decompression_stream(lua_State *L)
     return 1;
 }
 
-static int Reverse(lua_State* L)
-{
-    // The number of expected items to be on the Lua stack
-    // once this struct goes out of scope
-    DM_LUA_STACK_CHECK(L, 1);
-
-    // Check and get parameter string from stack
-    char* str = (char*)luaL_checkstring(L, 1);
-
-    // Reverse the string
-    int len = strlen(str);
-    for(int i = 0; i < len / 2; i++) {
-        const char a = str[i];
-        const char b = str[len - i - 1];
-        str[i] = b;
-        str[len - i - 1] = a;
-    }
-
-    // Put the reverse string on the stack
-    lua_pushstring(L, str);
-
-    // Return 1 item
-    return 1;
-}
-
 /*****************************************************************************
 * Export
 ****************************************************************************/
